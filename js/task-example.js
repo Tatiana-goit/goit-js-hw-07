@@ -81,6 +81,28 @@ const elements = makeColor(colors);
 
 colorPickerEl.append(...elements);
 
+//  СОБЫТИЯ ------------------------------------------------
+
+const targetBtnEl = document.querySelector('.js-btn');
+const targetBtnAdd = document.querySelector('.js-add-listener');
+const targetBtnRemove = document.querySelector('.js-remove-listener');
+
+
+targetBtnAdd.addEventListener('click', (event) => {
+  console.log('Вешаю слушателя события на текущую кнопку');
+  targetBtnEl.addEventListener('click', onTargetButtonClick);
+})
+
+targetBtnRemove.addEventListener('click', (event) => {
+  console.log('Убираю слушателя события на текущую кнопку');
+  targetBtnEl.removeEventListener('click', onTargetButtonClick);
+})
+
+function onTargetButtonClick(event) {
+  console.log('Клик по текущей кнопке');
+}
+
+
 
 
 
