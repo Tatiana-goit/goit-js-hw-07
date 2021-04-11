@@ -25,10 +25,27 @@ const images = [
 
 const galleryEl = document.querySelector('#gallery');
 
-const onListImages = ({ url, alt }) =>
-  `<li> <img src='${url}' alt='${alt}'> </li>`;
-
-const markup = images.map(onListImages);
+const markup = onListImages(images);
+  
+function onListImages(images) {
+  return images.map(({ url, alt }) => {
+    return `
+      <li> <img src='${url}' alt='${alt}'> </li>
+    `;
+  }).join("")
+}
 
 galleryEl.insertAdjacentHTML('afterbegin', markup);
+
+
+// Старый вариант
+
+// const galleryEl = document.querySelector('#gallery');
+
+// const onListImages = ({ url, alt }) =>
+//   `<li> <img src='${url}' alt='${alt}'> </li>`;
+
+// const markup = images.map(onListImages);
+
+// galleryEl.insertAdjacentHTML('afterbegin', markup);
 
