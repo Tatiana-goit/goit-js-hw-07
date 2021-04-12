@@ -69,6 +69,5 @@ function removeActiveClass() {
 
 function addActiveClass(card) {
     card.classList.add('is-active')
-    
 }
 
